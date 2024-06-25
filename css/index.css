@@ -1,0 +1,442 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+	font-size: 1.6rem;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* Header ---------------------------------------------->>>>> */
+
+header{
+	width:100%;
+	height:70rem;
+	top:0;
+	left:0;
+	z-index:1000;
+	padding-left: 1.5rem;
+	background: url(../image/header-ball.png) no-repeat center center;
+	background-size: cover;
+}
+
+/* ====== Header 1행 ====== */
+.nav_top1{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width:100%;
+	height:6rem;
+} 
+
+/* 로고 */
+.top_logo {
+	position: absolute;
+	right: -12%;
+	transform: translateX(-50%);
+}
+.top_logo img{width:13rem;}
+
+/* ====== 모바일메뉴 ====== */
+.gnb .gnb_list{	
+	position:fixed; 
+	left:0px; 
+	top:0px;
+	z-index:2000; 
+	width:60%; /*제이쿼리에서 움직이는 거리*/
+	height:100vh;
+	background-color:rgba(0,0,0,0.9); 
+}
+.gnb .gnb_list li{height:5rem;}
+.gnb .gnb_list li:first-child{margin-top:7rem;}
+.gnb .gnb_list li a{
+	display:block; 
+	font-size:1.8rem; 
+	color:#e8e8e8; 
+	text-transform:uppercase;
+	text-align:center;
+}
+.gnb .gnb_list li a:hover{color:#0a60ff}
+
+.gnb .gnb_list li.close{  /*닫기버튼*/
+	position:absolute; 
+	right:1.5rem; 
+	top:1.5rem; 
+	cursor:pointer;
+}
+
+/*뒤배경 어둡게...*/
+.back{
+	display:none;
+	width:100%;
+	height:100vh;
+	background:rgba(0,0,0,0.8);
+	position:fixed;
+	left:0; 
+	top:0; 
+	z-index:1500;  /*헤더보다는 높아야하고, 메뉴보다다 낮아야 함*/
+}
+
+/* 해더 안에 이미지들 */
+.header-image1{
+	width: 95%;
+	margin-top: 50%;
+}
+/* 참여기업 리스트 */
+@keyframes row1-ani{
+	0%{transform: translateX(0);}
+	100%{transform: translateX(-40%);}
+}
+.banner-slide{
+	margin-top: 50%;
+	margin-left: -40%;
+	position: relative;
+}
+.banner-slide img{
+	padding-right: 70px;
+	transform: scale(1.7);
+}
+.banner-slide .row{
+	position: relative;
+	width: inherit;
+	height: 8vh;
+}
+.banner-slide .row::before,
+.banner-slide .row::after{
+	content: '';
+	position: absolute;
+	z-index: 2;
+}
+.banner-slide .row::before{
+	left: 0%;
+}
+.banner-slide .row::after{
+	transform: rotateZ('180deg');
+	right: 0;
+}
+.banner-slide .row + .row{ 
+	border-top: 1px solid #ccc;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+.banner-slide .row_inner{
+	display: flex;
+	position: absolute;
+	height: 100%;
+	top: 0;
+}
+.banner-slide .row1 .row_inner{
+	left: 0;
+	animation: row1-ani 20s linear infinite alternate;
+}
+.banner-slide:hover .row_inner{
+	animation-play-state: paused;
+	cursor: pointer;
+}
+
+/* 본문1(투표) */
+.vote{
+	color: #000;
+	line-height: 25px;
+	padding: 40px 0;
+}
+.vote-main{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 20px 0;
+	line-height: 30px;
+}
+.vote-main h1{
+	font-size: 35px;
+	margin: 6% 0;
+	letter-spacing: 2px;
+	font-weight: 900;
+	color: #001843;
+}
+.vote-main h3{
+	font-weight: 400;
+	font-size: 18px;
+}
+.vote-main h3 span{
+	font-weight: bold;
+	color: #001843;
+	font-size: 2.2rem;
+}
+.vote-text{
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 3%;
+	margin-bottom: 10%;
+	background-color: #001843;
+	color: #fff;
+	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.6));
+}
+.vote-text h2{
+	font-size: 2.5rem;
+	margin: 1% auto 5%;
+	font-weight: 600;
+	text-align: center;
+}
+.vote-text h4{
+	font-size: 1.5rem;	
+	font-weight: 300;
+	text-align: center;
+}
+.gift-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; 
+	margin: 20px auto;
+}
+.gift-item {
+    flex: 1 1 calc(50% - 20px); 
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden; 
+}
+.gift-item img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    transition: transform 0.3s ease; 
+}
+.gift-item img:hover {
+    transform: scale(1.1); 
+}
+.gift-item h1 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.h4-color span a{
+	font-weight: 800;
+	font-size: 1.6rem;
+}
+.vote-button{
+	margin: 7% auto 2%;
+	width: 55%;
+	height: 40px;
+	line-height: 15px;
+	text-align: center;
+	padding: 10px 0;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1.6rem;
+	font-weight: 600;
+	color: #fff;
+	border: 2px solid #fff;
+}
+
+/* <!-- allStar------------------------------ --> */
+.allstar{
+	width: 100%;
+	height: 1450px;
+}
+.team-blue{
+	background: url(../image/bg-blue.png) center/contain no-repeat;
+	width: 100%;
+	height: 600px; 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 15%;
+}
+.team-blue-row img {
+	margin-right: 20px; 
+	transition: 0.5s;
+}
+.team-blue-row img:last-child {
+	margin-right: 0;
+}
+.team-blue-row img:hover{
+	transform: scale(1.2);
+	cursor: pointer;
+}
+.img_vote{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.img_vote img{
+	transform: scale(0.6);
+	transition: 0.7s;
+	cursor: pointer;
+}
+.img_vote img:hover{
+	filter: brightness(0.8);
+}
+.team-red{
+	background: url(../image/bg-red.png) center/contain no-repeat;
+	width: 100%;
+	height: 600px; 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 10%;
+}
+.team-red-row img {
+	margin-right: 20px;
+	transition: 0.5s;
+}
+.team-red-row img:last-child {
+	margin-right: 0;
+}
+.team-red-row img:hover{
+	transform: scale(1.2);
+	cursor: pointer;
+}
+
+/* 신한 광고 */
+#portfolio{
+	margin-top: 15% auto;
+	padding-top: 2%;
+	width:100%;
+	height: 46rem;
+	background-color: #001843;
+}
+
+#portfolio .swiper {
+	width: 100%;
+	height: auto;
+}
+#portfolio .swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+}
+#portfolio .swiper-slide img {
+	display: block;
+	width: 100%;
+}
+.vote-main h4{
+	color: #fff;
+	font-size: 2.5rem;
+	margin: 5% auto;
+}
+/* =============footer============ */
+footer {
+	background-color: #353535;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;    /* 수직 가운데 정렬 */
+    height: 26vh;   
+	color: #fff;   
+	padding: 40px 0;    /* footer가 전체 뷰포트를 채우는 경우 */
+}
+
+footer a {
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    justify-content: center; /* 수직 가운데 정렬 */
+    align-items: center;     /* 수평 가운데 정렬 */
+    text-decoration: none;   /* 링크의 밑줄 제거 (필요한 경우) */
+}
+
+footer img {
+	padding-bottom: 20px;
+    max-width: 30%;        /* 이미지가 부모 요소를 넘지 않도록 제한 */
+}
+
+footer p {
+    margin: 0;              /* 기본 마진 제거 */
+    text-align: center; 
+	font-size: 1.3rem;    /* 텍스트 가운데 정렬 */
+}
+/*///// Aside Quick Icon */
+.aside{  /* 전체영역을 고정하기위해 사용함 */
+	position:fixed;
+	bottom:5rem; 
+	right:0.5rem;
+	width:5rem;
+	height:50rem;
+	z-index:2000;
+	overflow:hidden;
+}
+.quickmenu{  /* 퀵메뉴의 전체기준을 잡음 */
+	position:relative; 
+	width:5rem;
+	height:50rem;
+	z-index:1100;
+}
+.quickmenu .quick_icon{
+  position:absolute;
+	bottom:0;
+	left:0;
+}
+.quickmenu .quick_icon li{  /* 모든 아이콘들을 한곳에 위치 */
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.quick_icon li a{
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  font-size: 2.6rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+}
+.quick_icon .icon1 a{background-color: #000;}
+.quick_icon .icon2 a{background-color: #000}
+.quick_icon .icon3 a{background-color: #000;}
+.quick_icon .icon4 a{background-color: #000;}
+.quick_icon .icon5 a{background-color: #000;}
+
+
+/* Trigger */
+.trigger {
+  width: 5rem;
+  height: 5rem;
+	margin: auto;
+  background-color: rgb(5, 26, 90);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+	bottom:1rem; 
+  cursor: pointer;
+  z-index: 100;
+}
+.trigger_btn{
+  width: 60%;
+  height: 40%;
+  position: relative;
+}
+.trigger_btn span{
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  background-color: #fff;
+  transition: 0.3s;
+}
+.trigger_btn span:nth-child(1){top: 0;}
+.trigger_btn span:nth-child(2){top: 50%;}
+.trigger_btn span:nth-child(3){top: 100%;}
+
+/* jQuery 에서 trigger클릭시 바뀌는 부분 */
+.trigger_btn.active span{background-color: #fff;}
+.trigger_btn.active span:nth-child(1){
+  top: 50%;
+  transform: rotate(45deg);
+}
+.trigger_btn.active span:nth-child(2){opacity: 0;}
+.trigger_btn.active span:nth-child(3){
+  top: 50%;
+  transform: rotate(-45deg);
+}
